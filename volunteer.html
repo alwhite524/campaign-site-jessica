@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer — Jessica Voigt for Beaumont Mayor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Jessica Voigt <strong>&bull;</strong> Beaumont Mayor</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="volunteer.html" class="active">Volunteer</a></li>
+      <li><a href="donate.html" class="btn-donate">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:40px;">
+  <div class="wrap" style="max-width:640px;">
+    <span class="eyebrow">Get involved</span>
+    <h1 style="font-size:clamp(2rem,4vw,2.8rem);">Volunteer with the campaign</h1>
+    <p class="hero-tagline">Knock doors, make calls, host a meet-and-greet, or just put a sign in your yard — every bit of help gets Jessica closer to Election Day.</p>
+  </div>
+</header>
+
+<section style="padding-top:56px;">
+  <div class="wrap" style="max-width:640px;">
+    <div class="section-head">
+      <span class="eyebrow">Sign up</span>
+      <h2>Join the volunteer team</h2>
+    </div>
+
+    <form class="form-card" id="volunteer-form">
+      <fieldset>
+        <legend>Your info</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="v-first">First name</label>
+            <input type="text" id="v-first" name="firstName" required>
+          </div>
+          <div class="field">
+            <label for="v-last">Last name</label>
+            <input type="text" id="v-last" name="lastName" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="v-email">Email</label>
+          <input type="email" id="v-email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="v-phone">Phone</label>
+          <input type="tel" id="v-phone" name="phone">
+        </div>
+        <div class="field">
+          <label for="v-zip">ZIP code</label>
+          <input type="text" id="v-zip" name="zip">
+          <p class="hint">Helps us match you to volunteer shifts and events near you.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>How you'd like to help</legend>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="interests" value="Canvassing / door-knocking"> Canvassing / door-knocking</label>
+          <label><input type="checkbox" name="interests" value="Phone or text banking"> Phone or text banking</label>
+          <label><input type="checkbox" name="interests" value="Hosting an event at my home"> Hosting an event at my home</label>
+          <label><input type="checkbox" name="interests" value="Data entry / office support"> Data entry / office support</label>
+          <label><input type="checkbox" name="interests" value="Poll watching / Election Day support"> Poll watching / Election Day support</label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;">Sign me up</button>
+      <p class="form-status" id="volunteer-form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="dim" style="padding-top:56px;">
+  <div class="wrap" style="max-width:640px;">
+    <div class="section-head">
+      <span class="eyebrow">Show your support</span>
+      <h2>Request a yard sign</h2>
+      <p>We'll drop off or mail a sign to the address below. One sign per household unless you tell us otherwise.</p>
+    </div>
+
+    <form class="form-card" id="yard-sign-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="y-first">First name</label>
+          <input type="text" id="y-first" name="firstName" required>
+        </div>
+        <div class="field">
+          <label for="y-last">Last name</label>
+          <input type="text" id="y-last" name="lastName" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="y-address">Delivery address</label>
+        <input type="text" id="y-address" name="address" required>
+      </div>
+      <div class="field">
+        <label for="y-phone">Phone or email</label>
+        <input type="text" id="y-phone" name="contact" placeholder="So a volunteer can coordinate drop-off">
+      </div>
+      <div class="field">
+        <label for="y-qty">Number of signs</label>
+        <select id="y-qty" name="quantity">
+          <option>1</option>
+          <option>2</option>
+          <option>3+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="y-notes">Notes for the delivery volunteer</label>
+        <textarea id="y-notes" name="notes" rows="3" placeholder="e.g. best time of day, where to place it, gate code"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Request sign</button>
+      <p class="form-status" id="yard-sign-form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Friends of Jessica Voigt</span>
+    <span class="disclaimer">Paid for by Jessica Voigt for Beaumont Mayor 2026</span>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  // Paste the Google Apps Script Web App URL here after deploying it
+  // (see apps-script/SETUP.md in the repo for step-by-step instructions).
+  var SCRIPT_URL = 'PASTE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+  function collectPayload(form, formType) {
+    var fd = new FormData(form);
+    if (formType === 'volunteer') {
+      return {
+        formType: 'volunteer',
+        firstName: fd.get('firstName') || '',
+        lastName: fd.get('lastName') || '',
+        email: fd.get('email') || '',
+        phone: fd.get('phone') || '',
+        zip: fd.get('zip') || '',
+        interests: fd.getAll('interests')
+      };
+    }
+    return {
+      formType: 'yard-sign',
+      firstName: fd.get('firstName') || '',
+      lastName: fd.get('lastName') || '',
+      address: fd.get('address') || '',
+      contact: fd.get('contact') || '',
+      quantity: fd.get('quantity') || '',
+      notes: fd.get('notes') || ''
+    };
+  }
+
+  function wireForm(formId, formType, statusId, successMessage) {
+    var form = document.getElementById(formId);
+    var status = document.getElementById(statusId);
+    if (!form || !status) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (SCRIPT_URL.indexOf('PASTE_') === 0) {
+        status.textContent = "This form isn't connected yet — see apps-script/SETUP.md.";
+        status.className = 'form-status form-status-error';
+        return;
+      }
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.textContent = '';
+      status.className = 'form-status';
+
+      var payload = collectPayload(form, formType);
+
+      // Apps Script web apps don't send CORS headers on POST responses, so
+      // we fire the request in no-cors mode (fire-and-forget: we can't read
+      // the response, but the request itself still reaches the script).
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function () {
+        form.reset();
+        status.textContent = successMessage;
+        status.className = 'form-status form-status-success';
+      }).catch(function () {
+        status.textContent = 'Something went wrong sending that — please try again or reach out to the campaign directly.';
+        status.className = 'form-status form-status-error';
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      });
+    });
+  }
+
+  wireForm('volunteer-form', 'volunteer', 'volunteer-form-status', "Thanks for signing up! We'll be in touch.");
+  wireForm('yard-sign-form', 'yard-sign', 'yard-sign-form-status', "Got it — a volunteer will coordinate delivery soon.");
+})();
+</script>
+
+</body>
+</html>
