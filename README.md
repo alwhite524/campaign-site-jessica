@@ -14,8 +14,7 @@ Static HTML/CSS site, same template pattern as the Lloyd White campaign site
 
 ## TODO before this goes live
 
-- [ ] **Photo** — add `jessica-voigt.jpg` (the headshot provided) to this
-      folder root. `index.html` already references that filename.
+- [x] **Photo** — `jessica-voigt.jpg` is in place.
 - [ ] **Donate link** — `donate.html` has a placeholder button
       (`#PASTE-DONATE-LINK-HERE`). Swap in the real Anedot/ActBlue/WinRed
       contribution URL.
@@ -31,9 +30,10 @@ Static HTML/CSS site, same template pattern as the Lloyd White campaign site
       list. Add one later if useful.
 - [ ] **Social links / contact email** — not included yet; add to the footer
       or nav once available.
-- [ ] **GitHub repo + Pages** — this folder is a local git repo only so far
-      (no remote). Create a GitHub repo (e.g. `campaign-site-voigt`), push,
-      then enable GitHub Pages and point DNS for
+- [x] **GitHub repo** — pushed to
+      [github.com/alwhite524/campaign-site-jessica](https://github.com/alwhite524/campaign-site-jessica).
+- [ ] **GitHub Pages + DNS** — enable Pages in the repo settings (Settings →
+      Pages → deploy from `main`), then point DNS for
       `JessicaVoigtForBeaumont.com` at it (the `CNAME` file above is already
       set for this).
 
