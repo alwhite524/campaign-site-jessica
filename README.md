@@ -32,10 +32,15 @@ Static HTML/CSS site, same template pattern as the Lloyd White campaign site
       or nav once available.
 - [x] **GitHub repo** — pushed to
       [github.com/alwhite524/campaign-site-jessica](https://github.com/alwhite524/campaign-site-jessica).
-- [ ] **GitHub Pages + DNS** — enable Pages in the repo settings (Settings →
-      Pages → deploy from `main`), then point DNS for
-      `JessicaVoigtForBeaumont.com` at it (the `CNAME` file above is already
-      set for this).
+- [x] **GitHub Pages + DNS** — Pages is enabled (deploying from `main`), and
+      Cloudflare has 4 A records for `@` pointing at GitHub Pages
+      (185.199.108/109/110/111.153, all DNS-only/unproxied). Site is live at
+      http://jessicavoigtforbeaumont.com/.
+- [ ] **HTTPS enforcement** — GitHub is still issuing the TLS certificate for
+      the custom domain (can take anywhere from a few minutes to ~24h after
+      DNS propagates). Once available, check "Enforce HTTPS" in
+      [repo Pages settings](https://github.com/alwhite524/campaign-site-jessica/settings/pages)
+      so the site redirects to `https://`.
 
 ## Local preview
 
