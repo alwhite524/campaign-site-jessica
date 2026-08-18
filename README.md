@@ -1,4 +1,4 @@
-# Jessica Voigt for Beaumont Mayor — campaign site
+# Jessica Voigt for Beaumont City Council — campaign site
 
 Static HTML/CSS site, same template pattern as the Lloyd White campaign site
 (`campaign-site-lloyd`). No build step — just plain files.
@@ -15,16 +15,15 @@ Static HTML/CSS site, same template pattern as the Lloyd White campaign site
 ## TODO before this goes live
 
 - [x] **Photo** — `jessica-voigt.jpg` is in place.
-- [ ] **Donate link** — `donate.html` has a placeholder button
-      (`#PASTE-DONATE-LINK-HERE`). Swap in the real Anedot/ActBlue/WinRed
-      contribution URL.
+- [x] **Donate link** — `donate.html` now embeds the real Anedot contribution
+      form directly on the page (with a "open in new tab" fallback link).
 - [ ] **Volunteer form backend** — follow `apps-script/SETUP.md` to wire up
       the Google Sheet + email notifications, then paste the deployed script
       URL into `volunteer.html`.
-- [ ] **Disclaimer text** — the footer currently reads "Paid for by Jessica
-      Voigt for Beaumont Mayor 2026." Confirm this matches the exact
-      disclaimer text required for her official campaign committee (FPPC
-      filings usually specify exact required wording).
+- [x] **Disclaimer text** — footer now reads "Paid for by Jessica Voigt for
+      City Council 2026" to match the committee name on her Anedot account.
+      Still worth confirming against the exact wording her FPPC filing
+      requires.
 - [ ] **Endorsements** — Lloyd's site lists Jessica as an endorser; this site
       doesn't have an endorsements section yet since we don't have names to
       list. Add one later if useful.
